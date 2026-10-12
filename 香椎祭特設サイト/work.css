@@ -1,0 +1,216 @@
+@charset "UTF-8";
+
+/* ==========================================
+   1. 基本設定（style.cssと一部共通変数を保持）
+   ========================================== */
+:root {
+  --primary-pink: #ff528a;
+  --soft-pink: #ff8cb3;
+  --bg-pink: #fff0f5;
+  --text-color: #4a2c35;
+  --white: #ffffff;
+  --font-main: 'M PLUS Rounded 1c', sans-serif;
+  --font-en: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--bg-pink);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================
+   2. WORK HEADER
+   ========================================== */
+.work-header {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(255, 82, 138, 0.1);
+  padding: 15px 0;
+}
+
+.work-header .header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work-header .logo {
+  font-family: var(--font-en);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-pink);
+}
+
+.back-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-pink);
+}
+
+/* ==========================================
+   3. WORK DETAIL CONTENT
+   ========================================== */
+.work-detail-container {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.work-detail-wrapper {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(255, 82, 138, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* 画像エリア */
+.work-media img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.zoom-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* 情報エリア */
+.work-category {
+  display: inline-block;
+  background: var(--bg-pink);
+  color: var(--primary-pink);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.work-title {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.work-author {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.work-description {
+  margin-bottom: 30px;
+}
+
+.work-description h3 {
+  font-size: 1.1rem;
+  color: var(--primary-pink);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--bg-pink);
+  padding-bottom: 4px;
+}
+
+.work-spec table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.work-spec th, .work-spec td {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.work-spec th {
+  width: 30%;
+  text-align: left;
+  color: var(--primary-pink);
+}
+
+/* 前後ナビゲーション */
+.work-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 2px dashed var(--bg-pink);
+}
+
+.btn-back {
+  background: var(--primary-pink);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nav-prev, .nav-next {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* ==========================================
+   4. FOOTER
+   ========================================== */
+.site-footer {
+  background-color: var(--text-color);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+.footer-logo {
+  font-family: var(--font-en);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--soft-pink);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .work-detail-wrapper {
+    grid-template-columns: 1fr; /* スマホでは縦並び */
+    padding: 20px;
+  }
+}
+
+/*
+  ======================================================================
+  【CSS (work.css) コードの解説・設計補足】※ブラウザ非表示
+  ======================================================================
+  1. 個別ページ最適化:
+     - TOPページの `style.css` とのコンフリクト（競合）を防止するため、分離された専用CSSファイルを作成。
+  2. レイアウト設計:
+     - PC環境では作品画像と詳細情報を左右２カラム（Grid layout）で美しくレイアウトし、
+       スマホ環境では画面幅に応じて縦1列へとフレキシブルに折り返すレスポンシブ設計としています。
+*/
